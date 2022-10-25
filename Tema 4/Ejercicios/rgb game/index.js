@@ -23,7 +23,7 @@ function setupModeButtons(){
             modeButtons[0].classList.remove("selected");
             modeButtons[1].classList.remove("selected");
             this.classList.add("selected");
-            this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
+            this.textContent === "Fácil" ? numSquares = 3: numSquares = 6;
             reset();
         });
     }
@@ -34,13 +34,13 @@ function setupSquares(){
         squares[i].addEventListener("click", function(){
             var clickedColor = this.style.backgroundColor;
             if (clickedColor === pickedColor) {
-                messageDisplay.textContent = "Correct!";
-                resetButton.textContent = "Play Again?";
+                messageDisplay.textContent = "¡¡Correcto!!";
+                resetButton.textContent = "¿Probar de nuevo?";
                 changeColors(clickedColor);
                 h1.style.backgroundColor = clickedColor;
             } else {
                 this.style.backgroundColor = "#232323";
-                messageDisplay.textContent = "Try Again";
+                messageDisplay.textContent = "Probar de nuevo";
             }
         });
     }
@@ -50,7 +50,7 @@ function reset(){
     colors = generateRandomColors(numSquares);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
-    resetButton.textContent = "New Colors";
+    resetButton.textContent = "Colores nuevos";
     messageDisplay.textContent = "";
     for(var i = 0; i < squares.length; i++){
         if(colors[i]){
