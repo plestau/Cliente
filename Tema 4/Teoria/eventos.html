@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Random color example — event handler attribute</title>
+    <style>
+      button {
+        margin: 10px
+      };
+    </style>
+  </head>
+  <body>
+    <button>Change color</button>
+    <h1 id="mititulo">TITULO</h1>
+    <script>
+        const miH1 = document.getElementById("mititulo");
+      const btn = document.querySelector('button');
+
+      function random(number) {
+        return Math.floor(Math.random() * (number+1));
+      }
+      function cambiaColor(e){
+        const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+      }
+      btn.addEventListener("click", cambiaColor);
+      btn.addEventListener("click", ()=>{console.log("Otro código")});
+
+      miH1.onclick = cambiaColor;
+      mih1.onclick = () => {console.log("Otro código")};
+    </script>
+  </body>
+</html>
