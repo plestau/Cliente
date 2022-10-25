@@ -5,7 +5,7 @@ function alerta(){
 function posicion(){
     $x = event.screenX;
     $y = event.screenY;
-    console.log("X: ",$x ,"</br>Y: ", $y);
+    console.log("X: ",$x ," Y: ", $y);
 }
 
 
