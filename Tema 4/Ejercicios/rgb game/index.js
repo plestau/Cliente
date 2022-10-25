@@ -9,9 +9,9 @@ var resetButton = document.querySelector("#reset");
 var modeButtons = document.querySelectorAll(".mode");
 
 
-init();
+start();
 
-function init(){
+function start(){
     setupModeButtons();
     setupSquares();
     reset();
