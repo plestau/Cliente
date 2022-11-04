@@ -1,0 +1,48 @@
+body{
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-areas: 
+    "columna" "texto";
+}
+
+#minimalista, #normal, #minimalista2{
+    font-weight: bold;
+    display: inline;
+    color: blue;
+    text-decoration: underline;
+}
+
+#columna{
+    grid-area: "columna";
+    background-color: lightblue;
+}
+
+#texto{
+    background-color: lightyellow;
+    display: grid;
+    grid-template-rows: 30px auto 30px;
+    grid-template-areas: 
+    "caja1"
+    "textos"
+    "caja2";
+}
+
+#caja1, #caja2{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+}
+
+#caja1{
+    background-color: lightgray;
+    justify-content: space-around;
+}
+
+#caja2{
+    background-color: yellow;
+    justify-content: center;
+}
+
+#oculto{
+    opacity: 1;
+}
