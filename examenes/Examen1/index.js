@@ -53,7 +53,7 @@ function Exa7(id) {
 // Ejercicio 4
 
 function Exa8(){
-    for (x = 0; x<=4; x++){
+    for (x = 1; x<=4; x++){
         const div = document.getElementById("div"+x);
         const getRandomNumber = (maxNum) => {
             return Math.floor(Math.random() * maxNum);
