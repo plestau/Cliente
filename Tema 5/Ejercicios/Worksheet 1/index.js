@@ -37,7 +37,6 @@ function crearInput() {
 }
 
 // Ejercicio 6
-// function that show images and two buttons to select next or previous image
 var imagenes = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.png", "img5.jpg"];
 var indice = 0;
 function siguiente(){
