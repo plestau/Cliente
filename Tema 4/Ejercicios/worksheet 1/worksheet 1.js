@@ -1,21 +1,31 @@
-function alerta(){
-    alert("Funciona");
+window.onclick = function(event) {
+    document.getElementById("ejercicio1").innerHTML= "Sabemos que has hecho click en la pagina";
 }
 
-function posicion(){
+window.onmouseover = function(event) {
     $x = event.screenX;
     $y = event.screenY;
-    console.log("X: ",$x ," Y: ", $y);
+    document.getElementById("coords").innerHTML = "X coords: " + $x + ", Y coords: " + $y;
+}
+
+tiempo = 0;
+window.onload = function(event) {
+    tiempo++;
+    document.getElementById("tiempo").innerHTML = "La pagina ha sido cargada en "+tiempo +" sec.";
+}
+
+function tpcanvas() {
+    location.href = "canvas/canvas.html";
 }
   
 function dragLeave(event) {
     if ( event.target.className == "droptarget" ) {
         document.getElementById("demo").innerHTML = "Left the dropzone";
         event.target.style.border = "";
-        alert("Funciona");
+        alert("Has arrastrado la");
     }
 }
-  
+
 function allowDrop(event) {
     event.preventDefault();
     

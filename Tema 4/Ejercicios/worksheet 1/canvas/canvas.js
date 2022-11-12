@@ -38,7 +38,16 @@ function quitarColor() {
     myCanvas.style.backgroundColor="inherit";
 }
 
+function tpimagenes() {
+    location.href = "../imagenes/imagenes.html";
+}
+
 window.onload = () => {
     creaCanvas();
     cambiaColor();
+    document.write("<p id='ejercicio6'></p>")
+    document.write("<p id='boton'></p>");
+    document.getElementById("ejercicio6").innerHTML = "Ir al ejercicio 9";
+    document.getElementById("boton").innerHTML = "<button onclick='tpimagenes()'>Ir a imágenes</button>";
 }
+
