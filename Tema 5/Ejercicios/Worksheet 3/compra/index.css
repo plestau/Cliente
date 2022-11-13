@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 80%;
+    justify-content: center;
+    margin-top: 3rem;
+    background: #828489;
+}
+
+.contenedor-añadiritems{
+    background: #4d7ea8;
+}
+
+.contenedor-añadiritems, .contenedor-mostraritems{
+    margin: 1rem 0;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border: 2px solid #272932;
+    box-shadow: 0 5px 10px #272932;
+}
+
+.titulo-añadiritems, .titulo-mostraritems{
+    text-transform: capitalize;
+}
+
+.titulo-añadiritems{
+    color: #b6c2d9;
+}
+
+.accion-añadiritems, .accion-mostraritems{
+    border: 2px solid #272932;
+    padding: 0.5rem 0;
+    text-transform: capitalize;
+    border-radius: 0.5rem;
+    display: none;
+}
+
+.input-añadiritems{
+    background: transparent;
+    border: none;
+    border-bottom: 5px solid #9e90a2;
+    width: 100%;
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: #9e90a2;
+    outline: none;
+    text-transform: uppercase;
+}
+
+.submit-añadiritems, .clear-mostraritems{
+    display: block;
+    width: 90%;
+    margin: 2rem auto 0 auto;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    outline: none;
+}
+
+.submit-añadiritems{
+    color: #b6c2d9;
+    background: transparent;
+    border: 3px solid #b6c2d9;
+    transition: all 2s ease;
+}
+
+.submit-añadiritems:hover{
+    background: #b6c2d9;
+    color: #272932;
+}
+
+.contenedor-mostraritems{
+    background: #b6c2d9;
+}
+
+.titulo-mostraritems{
+    color: #4d7ea8;
+    margin-bottom: 0.25rem;
+}
+
+.item-lista{
+    display:grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: all 1s ease-in-out;
+    margin: 0.5rem 0;
+}
+
+.item-lista:hover{
+    background: #828489;
+}
+
+.titulo-itemlista{
+    text-align: left;
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    color: #272932;
+}
+
+.link-itemlista{
+    color: red;
+    transition: all 2s linear;   
+}
+
+.item-lista:hover .link-itemlista{
+    transform: scale(2);
+}
+
+.clear-mostraritems{
+    color: #4d7ea8;
+    background: transparent;
+    border: 3px solid #4d7ea8;
+    transition: all 2s ease;
+    background: #4d7ea8;
+    color:#272932;
+    outline:none;
+    background: transparent;
+}
+
+.alerta{
+    color: red;
+    border-color: red;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.exito{
+    color:rgb(32, 184, 32);
+    border-color: rgb(32, 184, 32);
+    display: block;
+    margin-bottom: 0.5rem;
+}
