@@ -1,5 +1,5 @@
 window.onload=function(){
-    word = "Palabra";
+    word = "palabra";
     n_vidas = 10;
     var wordArray = word.split("");
     var wordLength = wordArray.length;
@@ -10,16 +10,17 @@ window.onload=function(){
         resultado.innerHTML += " _ ";
     }
 
-
-
-    
     var button = document.querySelectorAll("button");
     for (i=0; i<button.length; i++) {
         button[i].addEventListener("click", function(){
             var letra = this.innerHTML;
             for (y=0; y<wordLength; y++) {
-                if (wordArray[y] == letra) {
-                    resultado.innerHTML = resultado.innerHTML.replaceAt(y*2, letra);
+                console.log("Word: " + wordArray[y]);
+                console.log("Letra: " + letra);
+                if (letra == wordArray[y]) {
+                    console.log("funciona");
+                    // Aqui no se como hacer que cuando sean iguales el resultado muestre el acierto, pero nada :(
+                    resultado.innerHTML = resultado.innerHTML.replace(wordArray[y], letra);
                 }
             }
             if (resultado.innerHTML.indexOf(" _ ") == -1) {
