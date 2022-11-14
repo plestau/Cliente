@@ -1,81 +1,115 @@
-var cartas = document.getElementById("contenedor2");
-var arrayResultado = [];
-var contador = 0;var text = document.getElementById("texto");
-var segundos = 00;
-var decimas = 00;
-var apenDecimas = document.getElementById("decimas");
-var apendSegundos = document.getElementById("segundos");
-var Interval;
-var imagenes = ['mario', 'luigi', 'waluigi', 'wario', 'bowser'];
-var clon = imagenes.slice(0);
-var carta = imagenes.concat(clon);
+function imagenesAleatorias() {
+    let personajes = ["mario","luigi","waluigi","wario","bowser"];
+    let posiciones = [0,1,2,3,4,5,6,7,8,9];
+    let cartas = document.getElementsByClassName("carta");
+    for (let i = 0; i < 5; i++) {
+      let numeroRandom = Math.floor(Math.random() * personajes.length);
+      let personaje = personajes[numeroRandom];
+      for(let j = 0; j < 2; j++) {
+        let randonNumeroPosicion = Math.floor(Math.random() * posiciones.length)
+        let randomPosicion = posiciones[randonNumeroPosicion];
+        posiciones.splice(randonNumeroPosicion, 1);
+        cartas[randomPosicion].setAttribute("personaje",personaje);
+        let imagen = cartas[randomPosicion].children[0];
+        imagen.setAttribute("src",personaje + ".jpg");
+        imagen.setAttribute("alt",personaje);
+      }
+      personajes.splice(numeroRandom,1);
+    }
+  }
 
-function barajar(o){
-    for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-    return o;
-}
+  // carga las imagenes al cargar la página
+  window.onload = imagenesAleatorias();
     
-barajar(carta);
-
-for (var i = 0; i < carta.length; i++){
-    card = document.createElement("div");
-    card.dataset.item = carta[i];
-    card.dataset.view = "carta";
-    cartas.appendChild(card);
-    card.onclick = function () {
-        if (this.className != "volteada" && this.className != "correcto"){
-            this.className = "volteada";
-            var resultado = this.dataset.item;
-            arrayResultado.push(resultado);
-            clearInterval(Interval);
-            Interval = setInterval(startTimer, 10);
+  let contador = 0;
+  let primeraCarta = "";
+  let segundaCarta = "";
+  let numeroVidas = 5;
+  let numeroPuntos = 0;
+  let timerPulsado = false;
+  let cartas = document.querySelectorAll(".carta");
+  let vidas = document.getElementById("vidas");
+  vidas.innerHTML = `You have ${numeroVidas} lifes left`;
+  
+  function activarTimer() {
+    timer = setInterval(() => {
+      let time = document.getElementById("seconds");
+      let seconds = Number(time.innerHTML);
+      seconds++;
+      if (time.innerHTML < 9) {
+        time.innerHTML = "0" + seconds;
+      }else {
+        time.innerHTML = seconds;
+      }
+      if (seconds === 60) {
+        let minutes = document.getElementById("minutes");
+        let minutesNumber = Number(minutes.innerHTML);
+        minutesNumber++;
+        if (minutes.innerHTML < 9) {
+          minutes.innerHTML = "0" + minutesNumber;
+        }else {
+          minutes.innerHTML = minutesNumber;
         }
-        if(arrayResultado.length > 1){
-            if(arrayResultado[0] === arrayResultado[1]){
-                check("correcto");
-                contador++;
-                ganar();
-                arrayResultado = [];
-            }
-            else{
-                check("vuelta");
-                arrayResultado = [];
-            }
+        time.innerHTML = "00";
+      }
+    },1000);
+  }
+    
+  function pararTimer() {
+    clearInterval(timer);
+  }
+    
+  cartas.forEach((carta) => {
+    carta.addEventListener("click", () => {
+      if (timerPulsado === false) {
+        activarTimer();
+        timerPulsado = true;
+      }
+      if (numeroVidas > 0) {
+        carta.classList.add("clicked");
+        if (contador == 0) {
+          primeraCarta = carta.getAttribute("personaje");
+          contador++;
+        }else {
+          segundaCarta = carta.getAttribute("personaje");
+          contador = 0;
+          if (primeraCarta == segundaCarta) {
+            let cartasIguales = document.querySelectorAll(
+              `.carta[personaje="${primeraCarta}"]`
+            );
+            cartasIguales[0].classList.add("matched");
+            cartasIguales[0].classList.remove("clicked");
+            cartasIguales[1].classList.add("matched");
+            cartasIguales[1].classList.remove("clicked");
+            numeroPuntos++;
+          }else {
+            let cartasDiferentes = document.querySelectorAll(".carta.clicked");
+            cartasDiferentes[0].classList.add("wrong");
+            cartasDiferentes[1].classList.add("wrong");
+            numeroVidas--;
+            vidas.innerHTML = `You have ${numeroVidas} tries left`;
+            setTimeout(() => {
+              cartasDiferentes[0].classList.remove("wrong", "clicked");
+              cartasDiferentes[1].classList.remove("wrong", "clicked");
+            },800);
+          }
         }
-    }
-}
-
-var check = function(className){
-    var x = document.getElementsByClassName("volteada");
-    setTimeout(function(){
-        for(var i = (x.length - 1); i >= 0; i--){
-            x[i].className = className;
-        }
-    },500);
-}
-
-var ganar = function(){
-    if(contador === 5){
-        clearInterval(Interval);
-        text.innerHTML = "Has tardado ", segundos, " segundos y ", decimas, " decimas";
-    }
-}
-
-function startTimer(){
-    decimas++;
-    if(decimas < 9){
-        apenDecimas.innerHTML = "0" + decimas;
-    }
-    if(decimas > 9){
-        apenDecimas.innerHTML = decimas;
-    }
-    if(decimas > 99){
-        segundos++;
-        apendSegundos.innerHTML = "0" + segundos;
-        decimas = 0;
-        apenDecimas.innerHTML = "0" + 0;
-    }
-    if(segundos > 9){
-        apendSegundos.innerHTML = segundos;
-    }
-}
+      }else {
+        vidas.innerHTML = "Try again";
+        pararTimer();
+        cartas.forEach((carta) => {
+          carta.style.opacity = 0.5;
+          carta.style.backgroundColor = "black";
+        });
+      }
+      if (numeroPuntos == 5) {
+        vidas.innerHTML = "Winner!";
+        pararTimer();
+      }
+    });
+  })
+    
+  restart = document.getElementById("restart");
+  restart.addEventListener("click", () => {
+    location.reload();
+  });

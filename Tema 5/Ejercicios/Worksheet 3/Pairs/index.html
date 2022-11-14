@@ -1,22 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
-    <title>Pairs Game</title>
-</head>
-<body>
-    <div class="contenedor">
-        <h1>Juego de parejas</h1>
-        <h3>Haz click en cualquier carta para empezar</h3>
-        <p><span id="segundos">00</span><span id="decimas">00</span></p>
-        <p id="texto"></p>
-        <div id="contenedor2">
-            
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego de pares</title>
+    <link rel="stylesheet" href="index.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>JAVASCRIPT PAIRS GAME</h1>
+        <h2>CLICK ANY CARD TO BEGIN</h2>
+        <br>
+        <span id="minutes">00</span>
+        <span>:</span>
+        <span id="seconds">00</span><br>
+        <button id="restart">Start again</button>
+        <br>
+        <br>
+      </header>
+      <div class="imagenes">
+        <div class="carta">
+          <img draggable="false"/>
         </div>
+        <div class="carta">
+          <img draggable="false"/>
+        </div>
+        <div class="carta">
+          <img draggable="false"/>
+        </div>
+        <div class="carta">
+          <img draggable="false"/>
+        </div>
+        <div class="carta">
+          <img draggable="false"/>
+        </div>
+        <div class="carta">
+          <img draggable="false"/>
+        </div>
+        <div class="carta">
+          <img draggable="false"/>
+        </div>
+        <div class="carta">
+          <img draggable="false"/>
+        </div>
+        <div class="carta">
+          <img draggable="false"/>
+        </div>
+        <div class="carta">
+          <img draggable="false"/>
+        </div>
+      </div>
+      <footer>
+        <h2 id="vidas"></h2>
+      </footer>
     </div>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>
