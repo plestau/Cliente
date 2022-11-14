@@ -3,14 +3,14 @@ function addProduct(e) {
 
     product_div = document.createElement('div');
     product_div.style.width = '40vw';
-    pencil_img = document.createElement('img');
-    pencil_img.src = 'editar.png';
+    edit_img = document.createElement('img');
+    edit_img.src = 'editar.png';
     trash_img = document.createElement('img');
     trash_img.src = 'basura.png';
     trash_img.onclick = () => { product_div.remove() };
     div = document.createElement('div');
 
-    div.appendChild(pencil_img);
+    div.appendChild(edit_img);
     div.appendChild(trash_img);
 
     product_div.innerHTML = product_name;
