@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <script src="https://kit.fontawesome.com/0615dc2069.js" crossorigin="anonymous"></script>
-    <title>Lista de la compra</title>
-</head>
-<body>
-    <!-- Añadir items -->
-    <div class="contenedor-añadiritems">
-        <h4 class="accion-añadiritems">Mostrar Acción</h4>
-        <h2 class="titulo-añadiritems">Añadir items a la lista de la compra</h2>
-        <form action="">
-            <input type="text" name="" id="" class="input-añadiritems">
-            <button type="submit" class="submit-añadiritems">Pulsa para añadir</button>
-        </form>
-    </div>
-    <!-- Msotrar items-->
-    <div class="contenedor-mostraritems">
-        <h4 class="accion-mostraritems">Mostrar Acción</h4>
-        <h2 class="titulo-mostraritems">Lista de la compra</h2>
-        <div class="listacompra"></div>
-            <button type="submit" class="clear-mostraritems">Limpiar lista</button>
-        </div>        
-    </div>
+    <title>Shopping List</title>
     <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="shopping-list">
+        <h1>Shopping List on JavaScript</h1>
+        <form>
+            <input type="texto" name="product">
+            <img id='add_img' src="añadir.png">
+        </form>
+        <div id="products"></div>
+        <div id="clear">Clear Items</div>
+        </section>
 </body>
+
 </html>
