@@ -1,0 +1,12 @@
+<datosUsuario>
+    <correo>correo@gmail.com</correo>
+    <asunto>Hola, soy tu sobrinooo</asunto>
+    <nombre>Pepe</nombre>
+    <fecha>2018-01-01</fecha>
+    <hora>12:00:00</hora>
+    <correo>falsocorreo@gmail.com</correo>
+    <asunto>Me debes 5 euros</asunto>
+    <nombre>Alfredo</nombre>
+    <fecha>2020-02-02</fecha>
+    <hora>14:30:00</hora>
+</datosUsuario>
