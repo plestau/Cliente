@@ -30,7 +30,7 @@ h1 {
 }
 
 .pokemon__card {
-    width: 230px;
+  width: 300px;
   background: #eeeeee;
   border-radius: 20px;
   padding: 20px 40px;
