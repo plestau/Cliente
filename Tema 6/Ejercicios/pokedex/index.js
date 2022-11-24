@@ -1,6 +1,7 @@
 const PokemonContainer = document.getElementById("pokemon__containerID");
 const SearchContainer = document.getElementById("search__containerID");
 const SearchElement = document.createElement("input");
+const Buttonsearch = document.getElementById("buscar");
 SearchElement.setAttribute("type", "text");
 SearchElement.setAttribute("name", "searchBar");
 SearchElement.setAttribute("placeholder", "Search...");
@@ -292,7 +293,7 @@ receivePokemons();
 
 const createSearchFilter = (pokemonData) => {
   const cards = document.querySelectorAll(".pokemon__card");
-  SearchElement.addEventListener("keyup", (event) => {
+  SearchElement.addEventListener("focusout", (event) => {
     const val = event.target.value.toLowerCase();
     cards.forEach((card) => {
       if (card.id.toLowerCase().includes(val)) {
