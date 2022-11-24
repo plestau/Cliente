@@ -18,7 +18,7 @@ const createPokemonCard = (pokemon) => {
   switch (PokemonType1) {
     case "steel": {
       PokemonWeakness1 = [" fuego ", " lucha ", " tierra "];
-      PokemonStronger1 = [" veneno ", " acero ", " bicho ", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
+      PokemonStronger1 = [" VENENO ", " acero ", " bicho ", "dragon", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
       break;
     }
     case "water": {
@@ -33,7 +33,7 @@ const createPokemonCard = (pokemon) => {
     }
     case "dragon": {
       PokemonWeakness1 = [" hielo ", " dragon ", " hada "];
-      PokemonStronger1 = [" dragon ", " agua ", " fuego ", " planta "];
+      PokemonStronger1 = [" dragon ", " agua ", "electrico", " fuego ", " planta "];
       break;
     }
     case "electric": {
@@ -102,7 +102,7 @@ const createPokemonCard = (pokemon) => {
       break;
     }
     case "flying": {
-      PokemonWeakness1 = ["eléctrico", " hielo ", " roca "];
+      PokemonWeakness1 = [" electrico ", " hielo ", " roca "];
       PokemonStronger1 = [" planta ", " lucha ", " bicho ", " TIERRA "];
       break;
     }
@@ -113,7 +113,7 @@ const createPokemonCard = (pokemon) => {
     switch (PokemonType2) {
       case "steel": {
         PokemonWeakness2 = [" fuego ", " lucha ", " tierra "];
-        PokemonStronger2 = [" veneno ", " acero ", " bicho ", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
+        PokemonStronger2 = [" VENENO ", " acero ", " bicho ", "dragon", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
         break;
       }
       case "water": {
@@ -128,7 +128,7 @@ const createPokemonCard = (pokemon) => {
       }
       case "dragon": {
         PokemonWeakness2 = [" hielo ", " dragon ", " hada "];
-        PokemonStronger2 = [" dragon ", " agua ", " fuego ", " planta "];
+        PokemonStronger2 = [" dragon ", " agua ", "electrico", " fuego ", " planta "];
         break;
       }
       case "electric": {
@@ -197,7 +197,7 @@ const createPokemonCard = (pokemon) => {
         break;
       }
       case "flying": {
-        PokemonWeakness2 = ["eléctrico", " hielo ", " roca "];
+        PokemonWeakness2 = [" electrico ", " hielo ", " roca "];
         PokemonStronger2 = [" planta ", " lucha ", " bicho ", " TIERRA "];
         break;
       }
@@ -293,7 +293,7 @@ receivePokemons();
 
 const createSearchFilter = (pokemonData) => {
   const cards = document.querySelectorAll(".pokemon__card");
-  SearchElement.addEventListener("focusout", (event) => {
+  SearchElement.addEventListener("keyup", (event) => {
     const val = event.target.value.toLowerCase();
     cards.forEach((card) => {
       if (card.id.toLowerCase().includes(val)) {
