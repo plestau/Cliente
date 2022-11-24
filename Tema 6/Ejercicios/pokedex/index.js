@@ -112,93 +112,93 @@ const createPokemonCard = (pokemon) => {
     const PokemonType2 = pokemon.types[1].type.name;
     switch (PokemonType2) {
       case "steel": {
-        PokemonWeakness2 = [" fuego ", " lucha ", " tierra "];
-        PokemonStronger2 = [" VENENO ", " acero ", " bicho ", "dragon", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
+        PokemonWeakness1 += [" fuego ", " lucha ", " tierra "];
+        PokemonStronger1 += [" VENENO ", " acero ", " bicho ", "dragon", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
         break;
       }
       case "water": {
-        PokemonWeakness2 = [" planta ", " electrico "];
-        PokemonStronger2 = [" acero ", " agua ", " fuego ", " hielo "];
+        PokemonWeakness1 += [" planta ", " electrico "];
+        PokemonStronger1 += [" acero ", " agua ", " fuego ", " hielo "];
         break;
       }
       case "bug": {
-        PokemonWeakness2 = [" fuego ", " volador ", " roca "];
-        PokemonStronger2 = [" planta ", " lucha ", " tierra "];
+        PokemonWeakness1 += [" fuego ", " volador ", " roca "];
+        PokemonStronger1 += [" planta ", " lucha ", " tierra "];
         break;
       }
       case "dragon": {
-        PokemonWeakness2 = [" hielo ", " dragon ", " hada "];
-        PokemonStronger2 = [" dragon ", " agua ", "electrico", " fuego ", " planta "];
+        PokemonWeakness1 += [" hielo ", " dragon ", " hada "];
+        PokemonStronger1 += [" dragon ", " agua ", "electrico", " fuego ", " planta "];
         break;
       }
       case "electric": {
-        PokemonWeakness2 = [" tierra "];
-        PokemonStronger2 = [" volador ", " electrico ", " acero "];
+        PokemonWeakness1 += [" tierra "];
+        PokemonStronger1 += [" volador ", " electrico ", " acero "];
         break;
       }
       case "ghost": {
-        PokemonWeakness2 = [" fantasma ", " siniestro "];
-        PokemonStronger2 = [" LUCHA ", " NORMAL ", " veneno ", " bicho "];
+        PokemonWeakness1 += [" fantasma ", " siniestro "];
+        PokemonStronger1 += [" LUCHA ", " NORMAL ", " veneno ", " bicho "];
         break;
       }
       case "fire": {
-        PokemonWeakness2 = [" agua ", " tierra ", " roca "];
-        PokemonStronger2 = [" planta ", " hada ", " hielo ", " bicho ", " acero ", " fuego "];
+        PokemonWeakness1 += [" agua ", " tierra ", " roca "];
+        PokemonStronger1 += [" planta ", " hada ", " hielo ", " bicho ", " acero ", " fuego "];
         break;
       }
       case "fairy": {
-        PokemonWeakness2 = [" veneno ", " acero "];
-        PokemonStronger2 = [" lucha ", "DRAGON", " bicho ", " siniestro "];
+        PokemonWeakness1 += [" veneno ", " acero "];
+        PokemonStronger1 += [" lucha ", "DRAGON", " bicho ", " siniestro "];
         break;
       }
       case "ice": {
-        PokemonWeakness2 = [" fuego ", " lucha ", " roca ", " acero "];
-        PokemonStronger2 = [" hielo "];
+        PokemonWeakness1 += [" fuego ", " lucha ", " roca ", " acero "];
+        PokemonStronger1 += [" hielo "];
         break;
       }
       case "fighting": {
-        PokemonWeakness2 = [" volador ", " psiquico ", " hada "];
-        PokemonStronger2 = [" siniestro ", " roca ", " bicho "];
+        PokemonWeakness1 += [" volador ", " psiquico ", " hada "];
+        PokemonStronger1 += [" siniestro ", " roca ", " bicho "];
         break;
       }
       case "normal": {
-        PokemonWeakness2 = [" lucha "];
-        PokemonStronger2 = [" FANTASMA "];
+        PokemonWeakness1 += [" lucha "];
+        PokemonStronger1 += [" FANTASMA "];
         break;
       }
       case "grass": {
-        PokemonWeakness2 = [" fuego ", " hielo ", " veneno ", " volador ", " bicho "];
-        PokemonStronger2 = [" tierra ", " electrico ", " planta ", " agua "];
+        PokemonWeakness1 += [" fuego ", " hielo ", " veneno ", " volador ", " bicho "];
+        PokemonStronger1 += [" tierra ", " electrico ", " planta ", " agua "];
         break;
       }
       case "psychic": {
-        PokemonWeakness2 = [" bicho ", " fantasma ", " siniestro "];
-        PokemonStronger2 = [" lucha ", " psiquico "];
+        PokemonWeakness1 += [" bicho ", " fantasma ", " siniestro "];
+        PokemonStronger1 += [" lucha ", " psiquico "];
         break;
       }
       case "rock": {
-        PokemonWeakness2 = [" agua ", " planta ", " lucha ", " tierra ", " acero "];
-        PokemonStronger2 = [" volador ", " fuego ", " normal ", " veneno "];
+        PokemonWeakness1 += [" agua ", " planta ", " lucha ", " tierra ", " acero "];
+        PokemonStronger1 += [" volador ", " fuego ", " normal ", " veneno "];
         break;
       }
       case "dark": {
-        PokemonWeakness2 = [" lucha ", " hada ", " bicho "];
-        PokemonStronger2 = [" fantasma ", " PSIQUICO ", " siniestro "];
+        PokemonWeakness1 += [" lucha ", " hada ", " bicho "];
+        PokemonStronger1 += [" fantasma ", " PSIQUICO ", " siniestro "];
         break;
       }
       case "ground": {
-        PokemonWeakness2 = [" agua ", " planta ", " hielo "];
-        PokemonStronger2 = [" ELECTRICO ", " roca ", " veneno "];
+        PokemonWeakness1 += [" agua ", " planta ", " hielo "];
+        PokemonStronger1 += [" ELECTRICO ", " roca ", " veneno "];
         break;
       }
       case "poison": {
-        PokemonWeakness2 = [" tierra ", " psiquico "];
-        PokemonStronger2 = [" planta ", " lucha ", " bicho ", " hada ", " veneno "];
+        PokemonWeakness1 += [" tierra ", " psiquico "];
+        PokemonStronger1 += [" planta ", " lucha ", " bicho ", " hada ", " veneno "];
         break;
       }
       case "flying": {
-        PokemonWeakness2 = [" electrico ", " hielo ", " roca "];
-        PokemonStronger2 = [" planta ", " lucha ", " bicho ", " TIERRA "];
+        PokemonWeakness1 += [" electrico ", " hielo ", " roca "];
+        PokemonStronger1 += [" planta ", " lucha ", " bicho ", " TIERRA "];
         break;
       }
     }
@@ -209,10 +209,6 @@ const createPokemonCard = (pokemon) => {
       let array4 = array3.filter((item, index) => array3.indexOf(item) === index);
       return array4;
     }
-    //se suman los arrays de debilidades y se guardan en un nuevo array
-    let PokemonWeakness = sumArrays(PokemonWeakness1, PokemonWeakness2);
-    //se suman los arrays de fortalezas y se guardan en un nuevo array
-    let PokemonStronger = sumArrays(PokemonStronger1, PokemonStronger2);
   
   
   const PokemonTypeColors = {
@@ -245,8 +241,8 @@ const createPokemonCard = (pokemon) => {
       <span class="pokemon__id">#${PokemonID.toString().padStart(3, "0")}</span>
       <h3 class="pokemon__name">${PokemonName}</h3>
       <small class="pokemon__type">Tipo: <span>${PokemonType1}</span></small><br>
-      <small class="pokemon__weakness">Debilidad: <span>${PokemonWeakness}</span></small><br>
-      <small class="pokemon__stronger">Fuerte contra: <span>${PokemonStronger}</span></small>
+      <small class="pokemon__weakness">Debilidad: <span>${PokemonWeakness1}</span></small><br>
+      <small class="pokemon__stronger">Fuerte contra: <span>${PokemonStronger1}</span></small>
     </div>`;
   if(pokemon.types[1] != null){
     const PokemonType2 = pokemon.types[1].type.name 
@@ -258,8 +254,8 @@ const createPokemonCard = (pokemon) => {
       <span class="pokemon__id">#${PokemonID.toString().padStart(3, "0")}</span>
       <h3 class="pokemon__name">${PokemonName}</h3>
       <small class="pokemon__type">Tipo: <span>${PokemonType1}/${PokemonType2}</span></small><br>
-      <small class="pokemon__weakness">Debilidad: <span>${PokemonWeakness}</span></small><br>
-      <small class="pokemon__stronger">Fuerte contra: <span>${PokemonStronger}</span></small>
+      <small class="pokemon__weakness">Debilidad: <span>${PokemonWeakness1}</span></small><br>
+      <small class="pokemon__stronger">Fuerte contra: <span>${PokemonStronger1}</span></small>
     </div>`;
   }
   PokemonElement.setAttribute("class", "pokemon__card");
