@@ -112,103 +112,101 @@ const createPokemonCard = (pokemon) => {
     const PokemonType2 = pokemon.types[1].type.name;
     switch (PokemonType2) {
       case "steel": {
-        PokemonWeakness1 += [" fuego ", " lucha ", " tierra "];
-        PokemonStronger1 += [" VENENO ", " acero ", " bicho ", "dragon", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
+        PokemonWeakness1 += ", " +[" fuego ", " lucha ", " tierra "];
+        PokemonStronger1 += ", " +[" VENENO ", " acero ", " bicho ", "dragon", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
         break;
       }
       case "water": {
-        PokemonWeakness1 += [" planta ", " electrico "];
-        PokemonStronger1 += [" acero ", " agua ", " fuego ", " hielo "];
+        PokemonWeakness1 += ", " +[" planta ", " electrico "];
+        PokemonStronger1 += ", " +[" acero ", " agua ", " fuego ", " hielo "];
         break;
       }
       case "bug": {
-        PokemonWeakness1 += [" fuego ", " volador ", " roca "];
-        PokemonStronger1 += [" planta ", " lucha ", " tierra "];
+        PokemonWeakness1 += ", " +[" fuego ", " volador ", " roca "];
+        PokemonStronger1 += ", " +[" planta ", " lucha ", " tierra "];
         break;
       }
       case "dragon": {
-        PokemonWeakness1 += [" hielo ", " dragon ", " hada "];
-        PokemonStronger1 += [" dragon ", " agua ", "electrico", " fuego ", " planta "];
+        PokemonWeakness1 += ", " +[" hielo ", " dragon ", " hada "];
+        PokemonStronger1 += ", " +[" dragon ", " agua ", "electrico", " fuego ", " planta "];
         break;
       }
       case "electric": {
-        PokemonWeakness1 += [" tierra "];
-        PokemonStronger1 += [" volador ", " electrico ", " acero "];
+        PokemonWeakness1 += ", " +[" tierra "];
+        PokemonStronger1 += ", " +[" volador ", " electrico ", " acero "];
         break;
       }
       case "ghost": {
-        PokemonWeakness1 += [" fantasma ", " siniestro "];
-        PokemonStronger1 += [" LUCHA ", " NORMAL ", " veneno ", " bicho "];
+        PokemonWeakness1 += ", " +[" fantasma ", " siniestro "];
+        PokemonStronger1 += ", " +[" LUCHA ", " NORMAL ", " veneno ", " bicho "];
         break;
       }
       case "fire": {
-        PokemonWeakness1 += [" agua ", " tierra ", " roca "];
-        PokemonStronger1 += [" planta ", " hada ", " hielo ", " bicho ", " acero ", " fuego "];
+        PokemonWeakness1 += ", " +[" agua ", " tierra ", " roca "];
+        PokemonStronger1 += ", " +[" planta ", " hada ", " hielo ", " bicho ", " acero ", " fuego "];
         break;
       }
       case "fairy": {
-        PokemonWeakness1 += [" veneno ", " acero "];
-        PokemonStronger1 += [" lucha ", "DRAGON", " bicho ", " siniestro "];
+        PokemonWeakness1 += ", " +[" veneno ", " acero "];
+        PokemonStronger1 += ", " +[" lucha ", "DRAGON", " bicho ", " siniestro "];
         break;
       }
       case "ice": {
-        PokemonWeakness1 += [" fuego ", " lucha ", " roca ", " acero "];
-        PokemonStronger1 += [" hielo "];
+        PokemonWeakness1 += ", " +[" fuego ", " lucha ", " roca ", " acero "];
+        PokemonStronger1 += ", " +[" hielo "];
         break;
       }
       case "fighting": {
-        PokemonWeakness1 += [" volador ", " psiquico ", " hada "];
-        PokemonStronger1 += [" siniestro ", " roca ", " bicho "];
+        PokemonWeakness1 += ", " +[" volador ", " psiquico ", " hada "];
+        PokemonStronger1 += ", " +[" siniestro ", " roca ", " bicho "];
         break;
       }
       case "normal": {
-        PokemonWeakness1 += [" lucha "];
-        PokemonStronger1 += [" FANTASMA "];
+        PokemonWeakness1 += ", " +[" lucha "];
+        PokemonStronger1 += ", " +[" FANTASMA "];
         break;
       }
       case "grass": {
-        PokemonWeakness1 += [" fuego ", " hielo ", " veneno ", " volador ", " bicho "];
-        PokemonStronger1 += [" tierra ", " electrico ", " planta ", " agua "];
+        PokemonWeakness1 += ", " +[" fuego ", " hielo ", " veneno ", " volador ", " bicho "];
+        PokemonStronger1 += ", " +[" tierra ", " electrico ", " planta ", " agua "];
         break;
       }
       case "psychic": {
-        PokemonWeakness1 += [" bicho ", " fantasma ", " siniestro "];
-        PokemonStronger1 += [" lucha ", " psiquico "];
+        PokemonWeakness1 += ", " +[" bicho ", " fantasma ", " siniestro "];
+        PokemonStronger1 += ", " +[" lucha ", " psiquico "];
         break;
       }
       case "rock": {
-        PokemonWeakness1 += [" agua ", " planta ", " lucha ", " tierra ", " acero "];
-        PokemonStronger1 += [" volador ", " fuego ", " normal ", " veneno "];
+        PokemonWeakness1 += ", " +[" agua ", " planta ", " lucha ", " tierra ", " acero "];
+        PokemonStronger1 += ", " +[" volador ", " fuego ", " normal ", " veneno "];
         break;
       }
       case "dark": {
-        PokemonWeakness1 += [" lucha ", " hada ", " bicho "];
-        PokemonStronger1 += [" fantasma ", " PSIQUICO ", " siniestro "];
+        PokemonWeakness1 += ", " +[" lucha ", " hada ", " bicho "];
+        PokemonStronger1 += ", " +[" fantasma ", " PSIQUICO ", " siniestro "];
         break;
       }
       case "ground": {
-        PokemonWeakness1 += [" agua ", " planta ", " hielo "];
-        PokemonStronger1 += [" ELECTRICO ", " roca ", " veneno "];
+        PokemonWeakness1 += ", " +[" agua ", " planta ", " hielo "];
+        PokemonStronger1 += ", " +[" ELECTRICO ", " roca ", " veneno "];
         break;
       }
       case "poison": {
-        PokemonWeakness1 += [" tierra ", " psiquico "];
-        PokemonStronger1 += [" planta ", " lucha ", " bicho ", " hada ", " veneno "];
+        PokemonWeakness1 += ", " +[" tierra ", " psiquico "];
+        PokemonStronger1 += ", " +[" planta ", " lucha ", " bicho ", " hada ", " veneno "];
         break;
       }
       case "flying": {
-        PokemonWeakness1 += [" electrico ", " hielo ", " roca "];
-        PokemonStronger1 += [" planta ", " lucha ", " bicho ", " TIERRA "];
+        PokemonWeakness1 += ", " +[" electrico ", " hielo ", " roca "];
+        PokemonStronger1 += ", " +[" planta ", " lucha ", " bicho ", " TIERRA "];
         break;
       }
     }
+    // se eliminan las palabras duplicadas en los array
+    PokemonWeakness1 = [...new Set(PokemonWeakness1.split(", "))].join(" ");
+    PokemonStronger1 = [...new Set(PokemonStronger1.split(", "))].join(" ");
   }
-    // funcion que suma dos arrays y elimina palabras enteras duplicadas
-    function sumArrays(array1, array2) {
-      let array3 = array1.concat(array2);
-      let array4 = array3.filter((item, index) => array3.indexOf(item) === index);
-      return array4;
-    }
+
   
   
   const PokemonTypeColors = {
@@ -276,12 +274,15 @@ const getPokemons = async (id) => {
   const response = await fetch(api_url);
   const data = await response.json();
   createPokemonCard(data);
+  
 };
 
 const receivePokemons = async () => {
   for (let item = 1; item <= PokemonNumber; item++) {
     await getPokemons(item);
   }
+  cargando = document.getElementById("cargando");
+  cargando.innerHTML = "Los pokémones ya han cargado";
   createSearchFilter();
 };
 
