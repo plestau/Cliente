@@ -18,7 +18,7 @@ const createPokemonCard = (pokemon) => {
   switch (PokemonType1) {
     case "steel": {
       PokemonWeakness1 = [" fuego ", " lucha ", " tierra "];
-      PokemonStronger1 = [" VENENO ", " acero ", " bicho ", "dragon", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
+      PokemonStronger1 = [" VENENO ", " acero ", " bicho ", " dragon ", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
       break;
     }
     case "water": {
@@ -113,7 +113,7 @@ const createPokemonCard = (pokemon) => {
     switch (PokemonType2) {
       case "steel": {
         PokemonWeakness1 += ", " +[" fuego ", " lucha ", " tierra "];
-        PokemonStronger1 += ", " +[" VENENO ", " acero ", " bicho ", "dragon", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
+        PokemonStronger1 += ", " +[" VENENO ", " acero ", " bicho ", " dragon ", " hada ", " hielo ", " normal ", " planta ", "psíquico", " roca ", " volador "];
         break;
       }
       case "water": {
