@@ -282,7 +282,7 @@ const receivePokemons = async () => {
     await getPokemons(item);
   }
   cargando = document.getElementById("cargando");
-  cargando.innerHTML = "Los pokémones ya han cargado";
+  cargando.innerHTML = "Los pokémon ya han cargado";
   createSearchFilter();
 };
 
