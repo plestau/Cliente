@@ -33,7 +33,7 @@ const createPokemonCard = (pokemon) => {
     }
     case "dragon": {
       PokemonWeakness1 = [" hielo ", " dragon ", " hada "];
-      PokemonStronger1 = [" dragon ", " agua ", "electrico", " fuego ", " planta "];
+      PokemonStronger1 = [" dragon ", " agua ", " electrico ", " fuego ", " planta "];
       break;
     }
     case "electric": {
@@ -128,7 +128,7 @@ const createPokemonCard = (pokemon) => {
       }
       case "dragon": {
         PokemonWeakness1 += ", " +[" hielo ", " dragon ", " hada "];
-        PokemonStronger1 += ", " +[" dragon ", " agua ", "electrico", " fuego ", " planta "];
+        PokemonStronger1 += ", " +[" dragon ", " agua ", " electrico ", " fuego ", " planta "];
         break;
       }
       case "electric": {
@@ -148,7 +148,7 @@ const createPokemonCard = (pokemon) => {
       }
       case "fairy": {
         PokemonWeakness1 += ", " +[" veneno ", " acero "];
-        PokemonStronger1 += ", " +[" lucha ", "DRAGON", " bicho ", " siniestro "];
+        PokemonStronger1 += ", " +[" lucha ", " DRAGON ", " bicho ", " siniestro "];
         break;
       }
       case "ice": {
