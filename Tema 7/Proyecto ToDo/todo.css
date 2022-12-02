@@ -1,0 +1,71 @@
+body{
+    background-color:#232223;
+    color: white;
+    font-family: 'roboto';
+    text-align: center;
+}
+
+#nueva{
+    width: 90%;
+    height: 50px;
+    border-bottom: 1px solid white;
+    font-size: 20px;
+    font-family: 'roboto';
+    border-radius: 10px;
+    padding-left: 20px;
+}
+
+hr{
+    border: 1px solid white;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+a, a:visited{
+    text-decoration: none;
+    color: orange;
+}
+
+#github{
+    color: greenyellow;
+}
+
+#tarjeta{
+    text-align: start;
+    background-color: grey;
+    list-style: none;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-rows: 50 50;
+    grid-template-areas: 
+    "input name"
+    "priority date";
+}
+
+#name{
+    grid-area: name;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#checkbox{
+    height: 20px;
+    margin-top: 20px;
+}
+
+#buttons{
+    grid-area: "priority";
+}
+
+#radial{
+    grid-area: "input";
+}
+
+#radial:checked{
+    color: green;
+}
