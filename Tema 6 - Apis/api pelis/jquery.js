@@ -1,6 +1,8 @@
 var pagina = 1;
-var imagenes = 0;
 var peticionEnCurso = false;
+
+/* COMENTARIO GENERAL: cuando cargas la página no hay scroll ya que te muestra unas opciones cerradas y luego al buscar
+ si que ejecuta el scroll con su respectiva carga infinita hasta que no coincidan más títulos */
 
 function cargarPagina() {
 	$("body").addClass("bg-dark");
@@ -12,7 +14,7 @@ function cargarPagina() {
 	var columna = $("<div id=menu class=col></div>");
 	var menu = $("<nav class='navbar navbar-expand-lg navbar-dark bg-dark'></nav>");
 	var clasmenu = $("<a class='navbar-brand' href='#'></a>");
-	var logo = $("<img id='logo' src='cine.png' width=125 height=100></a>");
+	var logo = $("<img href=index.html id='logo' src='cine.png' width=125 height=100></a>");
 	var boton1 = $("<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'></button>");
 	var estilo = $("<span class='navbar-toggler-icon'></span>");
 	var barra = $("<div class='collapse navbar-collapse' id='navbarSupportedContent'></div>");
@@ -61,15 +63,22 @@ function cargarPagina() {
 	$(".modal-content").append(bar);
 	$(".progress").append(progresbar);
 	$(".container-fluid").append(div1);
-}
 
-// Esta funcion lo que hacer es cambiar la imagen en caso de que esta no esté disponible
-function CambioDeImagen() {
-	$("img").on("error", function() {
-		$(this).attr(
-			"src",
-			"https://www.abc.es/Media/201703/17/series-640x360--644x362.jpg"
-		);
+	$("#div1").append("<h1>Tal vez puedan gustarte: </h1>");
+	// muestra 10 películas de ejemplo al cargar la página
+	const pelirandom = ["Batman", "Frozen", "Monsters", "Cars", "Pokémon"];
+	// escoge un valor aleatorio de pelisrandom
+	const aleatorio = pelirandom[Math.floor(Math.random() * pelirandom.length)];
+	$.ajax({
+		url: "http://www.omdbapi.com/?apikey=2f6435d9&s="+ aleatorio,
+		type: "GET",
+		dataType: "json",
+		success: function(result) {
+			$("#div1").append("<div id='fila' class='row'></div>");
+			for (var i = 0; i < result.Search.length; i++) {
+				crearImagenes(result.Search[i]);
+			}
+		}
 	});
 }
 
@@ -89,7 +98,6 @@ function crearImagenes(e) {
 	$("#" + e.imdbID + " .card .card-body").append(h5);
 	$("#" + e.imdbID + " .card .card-body .card-title").append(e.Title);
 	$("#" + e.imdbID + " .card .card-body").append(btn);
-	CambioDeImagen();
 	// hacemos posible el click en el boton y en la imagen
 	obtenerDatos(btn, e.imdbID);
 	obtenerDatos(imagen, e.imdbID);
@@ -172,19 +180,20 @@ function clicadoEnBoton() {
 	}
 }
 
-// Scroll infinito
+// Esta funcion es llamada cuando el scroll llega al final y lo que hace es una peticion ajax en el que incrementa el numero de páginas y muestra una imagen mientras recibe los datos
 function peticionScroll(tipo) {
 	if (!peticionEnCurso) {
 		peticionEnCurso = true;
+		console.log("funciona");
 		$.ajax({
 			url:
-				"https://www.omdbapi.com/?s=" +  + "&page=" + (pagina += 1) + "&type=" + tipo + "&apikey=ffbf2dce",
-			beforeSend: function() {
-				$("#cargando").show();
-			},
-			complete: function() {
-				$("#cargando").hide();
-			},
+				"https://www.omdbapi.com/?s=" +
+				$("#texto").val() +
+				"&page=" +
+				(pagina += 1) +
+				"&type=" +
+				tipo +
+				"&apikey=ffbf2dce",
 			success: function(result) {
 				$.each(result.Search, function(i, e) {
 					crearImagenes(e);
@@ -197,6 +206,7 @@ function peticionScroll(tipo) {
 // Esta funcion se ejecuta cuando el scroll llega al final
 function Scroll() {
 	if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+		console.log("Fujcioja");
 		if (
 			$("#tipos option:selected").val() == "series" ||
 			$("#tipos option:selected").val() == undefined
@@ -209,7 +219,8 @@ function Scroll() {
 }
 
 cargarPagina();
-$("#boton").click(function() {
+
+$("#search").click(function() {
 	clicadoEnBoton();
 });
 $("#texto").keypress(function(e) {

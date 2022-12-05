@@ -8,16 +8,18 @@ if(localStorage.getItem("task") == null){
     var tareascompletadas = 0;
 }
 
-// si pulsamos el boton con id borrar, borra las tareas que estén marcadas como completadas y las elimina del localstorage
-$("#borrar").click(function(){
-    for(var i = 0; i < todoList.length; i++){
-        if(todoList[i].completada == true){
-            todoList.splice(i, 1);
-            i--;
-        }
-    }
+// si pulsamos borrar, se borran las tarjetas y el localstorage de las tareas completadas, actualizando el contador
+$(document).on("click", "#borrar", function() {
+    // elimina las tarjetas de las tareas completadas
+    $("#contenido").find("input:checked").parent().remove();
+    // borra las tareas completadas del array todoList
+    todoList =     
+    // borra las tareas completadas del contador
+    tareaspendientes = tareaspendientes - tareascompletadas;
+    tareascompletadas = 0;
+    $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
+    // eliminamos las tareas completadas del localstorage
     localStorage.setItem("task", JSON.stringify(todoList));
-    location.reload();
 });
 
 
@@ -101,25 +103,3 @@ $(document).on("click", "#checkbox", function() {
     }
 });
 
-// si se pulsa el input low, se guarda la prioridad en el localstorage y se cambia el color de la tarjeta
-$(document).on("click", "#low", function() {
-    var task = $(this).parent().parent().find("#name").text();
-    localStorage.setItem(task, "low");
-    $(this).parent().parent().css("background-color", "#00FF00");
-});
-
-
-// si se pulsa el input medium, se guarda la prioridad en el localstorage y se cambia el color de la tarjeta
-$(document).on("click", "#medium", function() {
-    var task = $(this).parent().parent().find("#name").text();
-    localStorage.setItem(task, "medium");
-    $(this).parent().parent().css("background-color", "#FFFF00");
-});
-
-
-// si se pulsa el input up, se cambia el color de la tarjeta a rojo
-$(document).on("click", "#up", function() {
-    var task = $(this).parent().parent().find("#name").text();
-    localStorage.setItem(task, "up");
-    $(this).closest("li").css("background-color", "red");
-});
