@@ -40,12 +40,12 @@ function creaTarjetas(){
             "completada": false
         });
         localStorage.setItem("task", JSON.stringify(todoList));
-            $("#contenido").append("<form");
-            $("#contenido").append("<li id='tarjeta'><input id='radio' type='radio'><p id='name'>" + task + "</p></li>");
-            $("#tarjeta:last-child").append("<div id='buttons'> Priority: <input type='button' id='low' value='Low'><input type='button' id='medium' value='Normal'><input type='button' id='up' value='High'></div>");
-            $("#tarjeta:last-child").append("<div id='time'> Añadido el " + dia + " a las " + hora + "</div>");
-            $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='borrar.png'></div>");
-            $("#tarjeta").append("</form");
+        $("#contenido").append("<form");
+        $("#contenido").append("<li id='tarjeta'><input id='checkbox' type='checkbox'><p id='name'>" + task + "</p></li>");
+        $("#tarjeta:last-child").append("<div id='buttons'> Priority: <input type='button' id='low' value='Low'><input type='button' id='medium' value='Normal'><input type='button' id='up' value='High'></div>");
+        $("#tarjeta:last-child").append("<div id='time'> Añadido el " + dia + " a las " + hora + "</div>");
+        $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='borrar.png'></div>");
+        $("#tarjeta").append("</form");
         tareaspendientes++;
         $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
         $("#nueva").val("");
@@ -86,7 +86,7 @@ function cargaTarjetas(){
         for (var i = 0; i < task.length; i++) {
             // crea una tarjeta por cada tarea
             $("#contenido").append("<form");
-            $("#contenido").append("<li id='tarjeta'><input id='radio' type='radio'><p id='name'>" + task[i]["Tarea"] + "</p></li>");
+            $("#contenido").append("<li id='tarjeta'><input id='checkbox' type='checkbox'><p id='name'>" + task[i]["Tarea"] + "</p></li>");
             $("#tarjeta:last-child").append("<div id='buttons'> Priority: <input type='button' id='low' value='Low'><input type='button' id='medium' value='Normal'><input type='button' id='up' value='High'></div>");
             $("#tarjeta:last-child").append("<div id='time'> Añadido el dia: " + task[i]["dia"]  + " a las " + task[i]["hora"]  + "</div>");
             $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='borrar.png'></div>");
@@ -95,12 +95,22 @@ function cargaTarjetas(){
         // ordena las tareas por prioridad
         ordenar();
         // comprueba cuantas tareas están completadas
-        $("#radio").each(function() {
+        $("#checkbox").each(function() {
             if ($(this).is(":checked")) {
                 tareascompletadas++;
             }
-        }
-        );
+        });
+        // si estaba completada la tarea la marca como completada
+        $("#contenido").find("input").each(function() {
+            var tarea = $(this).parent().find("#name").text();
+            for (var i = 0; i < task.length; i++) {
+                if (task[i]["Tarea"] == tarea) {
+                    if (task[i]["completada"] == true) {
+                        $(this).prop("checked", true);
+                    }
+                }
+            }
+        });
         // muestra el contador de tareas pendientes
         $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
         // cambia la prioridad de cada tarea
@@ -157,7 +167,7 @@ function buscarTarea(){
                 $("#contenido").empty();
                 //añade la tarea buscada
                 $("#contenido").append("<form");
-                $("#contenido").append("<li id='tarjeta'><input id='radio' type='radio'><p id='name'>" + task[i]["Tarea"] + "</p></li>");
+                $("#contenido").append("<li id='tarjeta'><input id='checkbox' type='checkbox'><p id='name'>" + task[i]["Tarea"] + "</p></li>");
                 $("#tarjeta:last-child").append("<div id='buttons'> Priority: <input type='button' id='low' value='Low'><input type='button' id='medium' value='Normal'><input type='button' id='up' value='High'></div>");
                 $("#tarjeta:last-child").append("<div id='time'> Añadido el dia: " + task[i]["dia"]  + " a las " + task[i]["hora"]  + "</div>");
                 $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='borrar.png'></div>");
@@ -201,24 +211,24 @@ $(document).ready(function() {
     cargaTarjetas();
 });
 
-// si se pulsa el input radio, se añade 1 a tareascompletadas
-$(document).on("click", "#radio", function() {
+// si se pulsa el input checkbox, se añade 1 a tareascompletadas
+$(document).on("click", "#checkbox", function() {
     // cambia el color de p a verde y añade text decoration line-through
     if ($(this).is(":checked")) {
         $(this).parent().find("#name").css("color", "green");
         $(this).parent().find("#name").css("text-decoration", "line-through");
     }
-    // si el radio está marcado añade 1 a tareascompletadas en el contador
+    // si el checkbox está marcado añade 1 a tareascompletadas en el contador
     if ($(this).is(":checked")) {
         tareascompletadas++;
         $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
-        // guarda el estado del radio en el localstorage para cada tarjeta
+        // guarda el estado del checkbox en el localstorage para cada tarjeta
         var task = JSON.parse(localStorage.getItem("task"));
         var index = $(this).parent().index();
         task[index].completada = true;
         localStorage.setItem("task", JSON.stringify(task));
     }
-    // si el radio no está marcado
+    // si el checkbox no está marcado
     if (!$(this).is(":checked")) {
         // vuelve a poner a p en su estado normal
         $(this).parent().find("#name").css("color", "white");

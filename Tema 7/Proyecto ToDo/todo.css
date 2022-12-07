@@ -76,13 +76,14 @@ a, a:visited{
     font-size: 15px;
 }
 
-#radio{
+#checkbox{
     padding: 0;
     margin: 0;
     height: 35px;
     margin-top: 20px;
     float: right;
     grid-area: input;
+    border-radius: 50%;
 }
 
 #buttons{
