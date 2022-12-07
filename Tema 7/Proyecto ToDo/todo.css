@@ -41,31 +41,62 @@ a, a:visited{
     padding: 20px;
     margin-bottom: 20px;
     display: grid;
-    grid-template-rows: 50 50;
+    grid-template-rows: 70% 30%;
+    grid-template-columns: 20% 30% 40% 10%;
     grid-template-areas: 
-    "input name"
-    "priority date";
-}
+    "input name  . borrar"
+    "priority date . .";
+
+    animation-duration: 1s;
+    animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-bottom: 100%;
+      width: 300%
+    }
+  
+    to {
+      margin-bottom: 0%;
+      width: 100%;
+    }
+  }
 
 #name{
     grid-area: name;
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 
-#checkbox{
-    height: 20px;
+#time{
+    text-align: center;
+    grid-area: date;
+    font-size: 15px;
+}
+
+#radio{
+    padding: 0;
+    margin: 0;
+    height: 35px;
     margin-top: 20px;
+    float: right;
+    grid-area: input;
 }
 
 #buttons{
-    grid-area: "priority";
-}
-
-#radial{
-    grid-area: "input";
+    grid-area: priority;
+    display: flex;
+    justify-content: space-around;    
 }
 
 #radial:checked{
     color: green;
+}
+
+#borrartarea{
+    grid-area: borrar;
+    color: red;
+    float: right;
 }
