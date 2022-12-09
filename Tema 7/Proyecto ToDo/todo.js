@@ -1,55 +1,19 @@
+// VARIABLES
 if(localStorage.getItem("task") == "[]" || localStorage.getItem("task") == null){
     var todoList = [];
     var tareaspendientes = 0;
     var tareascompletadas = 0;
-    completadas = [];
 }else{
     var todoList = JSON.parse(localStorage.getItem("task"));
     var tareaspendientes = todoList.length;
     var tareascompletadas = 0;
-    completadas = [];
 }
+completadas = [];
 
-function creaTarjetas(){
-    //coge los datos del input y los guarda en la variable task
-    var task = $("#nueva").val();
-    //si el input está vacío, no hace nada
-    if (task == "") {
-        return false;
-    }
-    //si el input no está vacío, añade la tarea a la lista
-    else {
-        //guarda la hora a la que se crea la tarea
-        var fecha = new Date();
-        var dia = fecha.getDay() + "/" + fecha.getMonth() + "/" + fecha.getFullYear();
-        var hora = fecha.getHours() + ":" + fecha.getMinutes();
-        // si ya existe una tarea con el mismo nombre salta un alert
-        for (var i = 0; i < todoList.length; i++) {
-            if (todoList[i]["Tarea"] == task) {
-                alert("Ya existe una tarea con ese nombre");
-                location.reload();
-                return false;
-            }
-        }
-        // guarda la tarea con la fecha, el dia y la prioridad en el localstorage
-        todoList.push({
-            "Tarea": task,
-            "dia": dia,
-            "hora": hora,
-            "prioridad": "Sin determinar",
-            "completada": false
-        });
-        localStorage.setItem("task", JSON.stringify(todoList));
-        $("#contenido").append("<form");
-        $("#contenido").append("<li id='tarjeta'><input id='checkbox' type='checkbox'><p id='name'>" + task + "</p></li>");
-        $("#tarjeta:last-child").append("<div id='buttons'> Priority: <input type='button' id='low' value='Low'><input type='button' id='medium' value='Normal'><input type='button' id='up' value='High'></div>");
-        $("#tarjeta:last-child").append("<div id='time'> Añadido el " + dia + " a las " + hora + "</div>");
-        $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='borrar.png'></div>");
-        $("#tarjeta").append("</form");
-        tareaspendientes++;
-        $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
-        $("#nueva").val("");
-    }
+// FUNCIONES
+
+function actualizaContador(){
+    $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
 }
 
 function ordenar(){
@@ -76,7 +40,51 @@ function ordenar(){
             orden.push(task[i]);
         }
     }
+    // se guardan los cambios (el orden) en el localstorage
     localStorage.setItem("task", JSON.stringify(orden));
+}
+
+function creaTarjetas(){
+    //coge los datos del input y los guarda en la variable task
+    var task = $("#nueva").val();
+    //si el input está vacío, no hace nada
+    if (task == "") {
+        return false;
+    }
+    //si el input no está vacío, añade la tarea a la lista
+    else {
+        //guarda la hora y el día a la que se crea la tarea
+        var fecha = new Date();
+        var dia = fecha.getDay() + "/" + fecha.getMonth() + "/" + fecha.getFullYear();
+        var hora = fecha.getHours() + ":" + fecha.getMinutes();
+        // si ya existe una tarea con el mismo nombre salta un alert
+        for (var i = 0; i < todoList.length; i++) {
+            if (todoList[i]["Tarea"] == task) {
+                alert("Ya existe una tarea con ese nombre");
+                location.reload();
+                return false;
+            }
+        }
+        // guarda la tarea con la fecha, el dia y la prioridad en el localstorage con un diccionario
+        todoList.push({
+            "Tarea": task,
+            "dia": dia,
+            "hora": hora,
+            "prioridad": "Sin determinar",
+            "completada": false
+        });
+        localStorage.setItem("task", JSON.stringify(todoList));
+        // añade la tarjeta con sus datos
+        $("#contenido").append("<form");
+        $("#contenido").append("<li id='tarjeta'><input id='checkbox' type='checkbox'><p id='name'>" + task + "</p></li>");
+        $("#tarjeta:last-child").append("<div id='buttons'> Priority: <input type='button' id='low' value='Low'><input type='button' id='medium' value='Normal'><input type='button' id='up' value='High'></div>");
+        $("#tarjeta:last-child").append("<div id='time'> Añadido el " + dia + " a las " + hora + "</div>");
+        $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='borrar.png'></div>");
+        $("#tarjeta").append("</form");
+        tareaspendientes++;
+        actualizaContador();
+        $("#nueva").val("");
+    }
 }
 
 function cargaTarjetas(){
@@ -112,8 +120,8 @@ function cargaTarjetas(){
             }
         });
         // muestra el contador de tareas pendientes
-        $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
-        // cambia la prioridad de cada tarea
+        actualizaContador();
+        // al pulsar el boton de prioridad se cambia éste y el color del botón
         $("#contenido").find("input").each(function() {
             var tarea = $(this).parent().find("#name").text();
             for (var i = 0; i < task.length; i++) {
@@ -151,7 +159,7 @@ function borrarTarea(){
     // borra las tareas del contador
     tareaspendientes = tareaspendientes - tareascompletadas;
     tareascompletadas = 0;
-    $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
+    actualizaContador();
     // eliminamos todo rastro del localstorage
     localStorage.setItem("task", JSON.stringify(todoList));
 }
@@ -198,10 +206,12 @@ function buscarTarea(){
             }
         }
     }
+    // vaciamos el input de texto
     $("#nueva").val("");
 }
 
-
+// EVENTOS
+// Al cargar
 $(document).ready(function() {
     $("#nueva").keypress(function(e) {
         if (e.which == 13) {
@@ -221,7 +231,7 @@ $(document).on("click", "#checkbox", function() {
     // si el checkbox está marcado añade 1 a tareascompletadas en el contador
     if ($(this).is(":checked")) {
         tareascompletadas++;
-        $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
+        actualizaContador();
         // guarda el estado del checkbox en el localstorage para cada tarjeta
         var task = JSON.parse(localStorage.getItem("task"));
         var index = $(this).parent().index();
@@ -234,7 +244,7 @@ $(document).on("click", "#checkbox", function() {
         $(this).parent().find("#name").css("color", "white");
         $(this).parent().find("#name").css("text-decoration", "none");
         tareascompletadas--;
-        $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
+        actualizaContador();
         var task = JSON.parse(localStorage.getItem("task"));
         var index = $(this).parent().index();
         task[index].completada = false;
@@ -242,6 +252,7 @@ $(document).on("click", "#checkbox", function() {
     }
 });
 
+// Al pulsar borrar tarea, se borran las tareas completadas
 $(document).on("click", "#borrartarea", function() {
     var task = JSON.parse(localStorage.getItem("task"));
     var index = $(this).parent().parent().index();
@@ -249,7 +260,7 @@ $(document).on("click", "#borrartarea", function() {
     localStorage.setItem("task", JSON.stringify(task));
     $(this).parent().parent().remove();
     tareaspendientes--;
-    $("#resultado").html(tareaspendientes - tareascompletadas + " tareas pendientes de un total de "+ tareaspendientes);
+    actualizaContador();
 });
 
 // si hago click en buscar, se ejecuta la función buscarTarea
@@ -261,6 +272,7 @@ $(document).on("click", "#borrar", function() {
     borrarTarea();
 });
 
+// Botones de prioridad
 $(document).on("click", "#low", function() {
     var task = JSON.parse(localStorage.getItem("task"));
     var index = $(this).parent().parent().index();
