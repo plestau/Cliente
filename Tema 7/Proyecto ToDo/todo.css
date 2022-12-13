@@ -101,3 +101,13 @@ a, a:visited{
     color: red;
     float: right;
 }
+
+#buscar{
+    width: 90px;
+    height: 50px;
+    border-bottom: 1px solid white;
+    font-size: 20px;
+    font-family: 'roboto';
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

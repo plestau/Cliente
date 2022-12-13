@@ -79,7 +79,7 @@ function creaTarjetas(){
         $("#contenido").append("<li id='tarjeta'><input id='checkbox' type='checkbox'><p id='name'>" + task + "</p></li>");
         $("#tarjeta:last-child").append("<div id='buttons'> Priority: <input type='button' id='low' value='Low'><input type='button' id='medium' value='Normal'><input type='button' id='up' value='High'></div>");
         $("#tarjeta:last-child").append("<div id='time'> Añadido el " + dia + " a las " + hora + "</div>");
-        $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='borrar.png'></div>");
+        $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='papelera.webp'></div>");
         $("#tarjeta").append("</form");
         tareaspendientes++;
         actualizaContador();
@@ -97,7 +97,7 @@ function cargaTarjetas(){
             $("#contenido").append("<li id='tarjeta'><input id='checkbox' type='checkbox'><p id='name'>" + task[i]["Tarea"] + "</p></li>");
             $("#tarjeta:last-child").append("<div id='buttons'> Priority: <input type='button' id='low' value='Low'><input type='button' id='medium' value='Normal'><input type='button' id='up' value='High'></div>");
             $("#tarjeta:last-child").append("<div id='time'> Añadido el dia: " + task[i]["dia"]  + " a las " + task[i]["hora"]  + "</div>");
-            $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='borrar.png'></div>");
+            $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='papelera.webp'></div>");
             $("#tarjeta").append("</form");
         }
         // ordena las tareas por prioridad
@@ -178,7 +178,7 @@ function buscarTarea(){
                 $("#contenido").append("<li id='tarjeta'><input id='checkbox' type='checkbox'><p id='name'>" + task[i]["Tarea"] + "</p></li>");
                 $("#tarjeta:last-child").append("<div id='buttons'> Priority: <input type='button' id='low' value='Low'><input type='button' id='medium' value='Normal'><input type='button' id='up' value='High'></div>");
                 $("#tarjeta:last-child").append("<div id='time'> Añadido el dia: " + task[i]["dia"]  + " a las " + task[i]["hora"]  + "</div>");
-                $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='borrar.png'></div>");
+                $("#tarjeta:last-child").append("<div><img id=borrartarea style=width:40px; height:40px; src='papelera.webp'></div>");
                 $("#tarjeta").append("</form");
                 // cambia la prioridad de la tarea buscada
                 $("#contenido").find("input").each(function() {
