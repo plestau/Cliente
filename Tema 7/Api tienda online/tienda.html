@@ -5,10 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="tienda.css">
+    <script src="../../jquery-3.6.1.min.js"></script>
     <title>Tienda Online</title>
 </head>
 <body>
-
+    <header>
+        <h1 id="title">Tienda online</h1>
+        <img src="logo.png" id="logo">
+        <div id="links">
+            <img src="cuenta.png" id="userlogo">
+            <a id="iniciarsesion">Iniciar Sesión</a>
+            <img src="carrito.png" id="carrologo">
+            <a id="carrito">Carrito</a>
+        </div>
+    </header>
+    <hr>
+    <div id="categorias">
+        <p>Categorias: </p>
+        <a id="electronica">Electrónica</a>
+        <a id="joyeria">Joyería</a>
+        <a id="hombre">Ropa de hombre</a>
+        <a id="mujer">Ropa de mujer</a>
+    </div>
+    <div id="orden">
+        <p>Orden: </p>
+        <img src="ascendente.png" id="ascendente">
+        <img src="descencente.png" id="descendente">
+    </div>
+    <hr>
+    <div id="disponible"></div>
+    <div id="disponible_carrito"></div>
+    <center>
+    <div id="loading-screen" style="display: none;">
+        <img src="circles.png" alt="loading">
+    </div>
+    </center>
     <script src="tienda.js"></script>
 </body>
 </html>
