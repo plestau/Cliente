@@ -1,3 +1,17 @@
+body{
+    background-color: lightslategray;
+}
+
+a{
+    text-decoration: none;
+    color: yellow;
+    background-color: sandybrown;
+    border-radius: 30%;
+}
+
+#title, p{
+    color: darkslategrey;
+}
 header, #categorias, #orden{
     width: 100%;
     display: flex;
@@ -30,16 +44,26 @@ header, #categorias, #orden{
     width: 200px;
 }
 
-.disponible{
+
+#userlogo, #carrologo, #ascendente, #descendente{
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+
+#disponible, #disponible_carrito{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .tarjeta, .tarjeta__detallada{
+    box-shadow: 2px 2px 2px 2px darkgrey;
+    border-radius: 10%;
     float: left;
-    width: 330px;
-    height: 330px;
+    width: 280px;
+    height: 360px;
     margin: 10px;
     border: 1px solid #ccc;
     padding: 10px;
@@ -47,14 +71,26 @@ header, #categorias, #orden{
     background-color: #eee;
 }
 
+.tarjeta__body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 .tarjeta__detallada{
     height: auto;
 }
 
-.tarjeta__imagen_top{
+.tarjeta__imagen_top, .tarjeta__imagen_detallada{
     width: 200px;
     height: 150px;
     margin-bottom: 10px;
+}
+
+.tarjeta__price, .tarjeta__description, .tarjeta__cantidad{
+    color: black;
 }
 
 .tarjeta__description{
@@ -69,10 +105,4 @@ header, #categorias, #orden{
     justify-content: center;
     height: 200px;
     width: 200px;
-}
-
-#userlogo, #carrologo, #ascendente, #descendente{
-    height: 50px;
-    width: 50px;
-    margin: 10px;
 }
