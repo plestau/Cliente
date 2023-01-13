@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../jquery-3.6.1.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Prueba de Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <input v-model="campoFiltro" @keyup.enter="nuevaEntrada">
+        <button :disabled="permitirAnadirEntrada" @click="cambiarVisibilidad()">Ver texto entradas</button>
+        <input type="checkbox" v-model="mostrarResaltadas" />Mostrar solo resaltadas
+        <div v-for="entrada in entradasFiltradas" :id="entrada.codigoArt" :key="entrada.codigoArt">
+            <h2 v-bind:class=" {active:entrada.resaltar }" class="otraClase" @click="resaltar(entrada)">{{entrada.titulo}}</h2>
+            <p v-if="verEntrada">{{entrada.texto}}</p>
+            <p v-else>Pulsa el botón si quieres ver el texto completo</p>
+            <a v-bind:href="entrada.url">Más información</a>
+        </div>
+        <h3 class="otraClase">Actualmente tenemos {{ muestraNumeroArticulos }} artículos</h3>
+    </div>
+</body>
+</html>

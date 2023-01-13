@@ -1,0 +1,18 @@
+h2{
+  color: greenyellow;  
+}
+
+a, #a{
+    display: flex;
+    justify-content: center;
+    color: yellow;
+    font-size: 20px;
+}
+
+#container{
+    font-size: xx-large;
+}
+
+.prueba{
+    color: red;
+}

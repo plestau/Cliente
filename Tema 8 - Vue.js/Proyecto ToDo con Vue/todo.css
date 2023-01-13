@@ -1,0 +1,117 @@
+body{
+    background-color:#232223;
+    color: white;
+    font-family: 'roboto';
+    text-align: center;
+}
+
+#nueva{
+    width: 90%;
+    height: 50px;
+    border-bottom: 1px solid white;
+    font-size: 20px;
+    font-family: 'roboto';
+    border-radius: 10px;
+    padding-left: 20px;
+}
+
+hr{
+    border: 1px solid white;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+a, a:visited{
+    text-decoration: none;
+    color: orange;
+}
+
+#github{
+    color: greenyellow;
+}
+
+#tarjeta{
+    text-align: start;
+    background-color: grey;
+    list-style: none;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-rows: 70% 30%;
+    grid-template-columns: 20% 30% 40% 10%;
+    grid-template-areas: 
+    "input name  . borrar"
+    "priority date descripcion .";
+
+    animation-duration: 1s;
+    animation-name: slidein;
+  }
+  
+  @keyframes slidein {
+    from {
+      margin-bottom: 100%;
+      width: 300%
+    }
+  
+    to {
+      margin-bottom: 0%;
+      width: 100%;
+    }
+  }
+
+#name{
+    grid-area: name;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#time{
+    text-align: center;
+    grid-area: date;
+    font-size: 15px;
+}
+
+#checkbox{
+    padding: 0;
+    margin: 0;
+    height: 35px;
+    margin-top: 20px;
+    float: right;
+    grid-area: input;
+    border-radius: 50%;
+}
+
+#buttons{
+    grid-area: priority;
+    display: flex;
+    justify-content: space-around;    
+}
+
+#description{
+    grid-area: descripcion;
+}
+
+#radial:checked{
+    color: green;
+}
+
+#borrartarea{
+    grid-area: borrar;
+    color: red;
+    float: right;
+}
+
+#buscar{
+    width: 90px;
+    height: 50px;
+    border-bottom: 1px solid white;
+    font-size: 20px;
+    font-family: 'roboto';
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

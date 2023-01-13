@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Tutorial Vue 1</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>Como mostrar Variables de diferentes maneras</h2>
+        <p>Using text interpolation: {{ message }}</p>
+        <p>Using v-html directive: <span v-html="message"></span></p>
+        <h2>Como asignar id o clase con v-bind(:) de formas distintas</h2>
+        <div :class="{active: isActive, 'danger-text': hasError}">
+            {{message}}
+        </div>
+        <div :class="classObject">
+            {{message}}
+        </div>
+        <h2>Como usar v-bind para dar id, clases o caracteristicas a la vez</h2>
+        <div v-bind="nombrePrueba">
+            {{message}}
+        </div>
+        <h2>Usar expresiones de JavaScript</h2>
+        <div id="example">
+            <p>Mensaje original: "{{ message }}"</p>
+            <p>Mensaje invertido computado: "{{ reversedMessage }}"</p>
+        </div>
+        <h2>Propiedad conmutada y watched</h2>
+        <p>Nombre completo: {{ fullname }}</p>
+        <h2>Usar botón para cambiar cosas</h2>
+        <button @click="cambiarCosas">Pulsa aqui</button>
+        <p v-if="seen">Now you see me</p>
+        <h2>Usar links (no va)</h2>
+        <a>Github</a>
+        <p id="a" @click="visitarGithub">Github</p>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

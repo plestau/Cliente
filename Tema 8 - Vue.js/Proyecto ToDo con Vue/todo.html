@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="../../jquery-3.6.1.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>ToDo list</title>
+</head>
+<body>
+    <h1>Proyecto JQuery - Pablo Lestau</h1>
+    <input type="text" id="nueva" placeholder="¿Qué quieres recordar?">
+    <input type="submit" id="buscar" value="Buscar">
+    <hr>
+    <div id="stats">
+        <img src="stats.png" style="width:20px; height:20px;">
+        <span id="resultado"></span>|<a href="#" id="borrar">❌Borrar tareas completadas</a>
+    </div>
+    <hr>
+    <div id="contenido"></div>
+    <p>Desarrollado por Pablo Lestau</p>
+    <p>Código disponible en <a id="github" href="https://github.com/plestau">Github</a></p>
+    <script src="todo.js"></script>
+</body>
+</html>
