@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Trabajo ToDo Vue</title>
+</head>
+<body>
+    <div class="app">
+        <section class="saludo">
+            <h2 class="title">
+                Hola, <input type="text" placeholder="Nombre" v-model="nombre">
+            </h2>
+        </section>
+        <section class="create-todo">
+            <h3>Crear una tarea</h3>
+            <form @submit.prevent="addTodo">
+                <h4>Que hay en la lista de tareas</h4>
+                <input type="text" placeholder="p.e: Aprender Vue" v-model="input_content"/>
+
+                {{ input_content }}
+                <h4>Elige una prioridad</h4>
+                <div class="options">
+                    <label>
+                        <input type="radio" name="prioridad" id="baja" value="baja" v-model="input_category"/>
+                        <span class="bubble baja"></span>
+                        <div>Baja</div>
+                    </label>
+                    <label>
+                        <input type="radio" name="prioridad" id="media" value="media" v-model="input_category"/>
+                        <span class="bubble normal"></span>
+                        <div>Normal</div>
+                    </label>
+                    <label>
+                        <input type="radio" name="prioridad" id="alta" value="alta" v-model="input_category"/>
+                        <span class="bubble alta"></span>
+                        <div>Alta</div>
+                    </label>
+                </div>
+                <input type="submit" value="Añadir tarea"/>
+            </form>
+        </section>
+        <section class="todo-list">
+            <h3>TODO List</h3>
+            <div class="list">
+                <div v-for="todo in todos_asc" :class="`todo-item $(todo.done && 'done'}`">
+                    <label>
+                        <input type="checkbox" v-model="todo.done"/>
+                        <span class="`bubble ${todo.category}`"></span>
+                    </label>
+                    <div class="todo-content">
+                        <input type="text" v-model="todo.content"/>
+                    </div>
+                    <div class="actions">
+                        <button class="delete" @click="removeTodo(todo)">Borrar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="../../jquery-3.6.1.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>ToDo list</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Proyecto JQuery y Vue</h1>
+        <input type="text" id="nueva" placeholder="¿Qué quieres recordar?" v-on:keyup.enter="creaTarjetas()">
+        <input type="submit" id="buscar" value="Buscar" @click="buscarTarea()">
+        <hr>
+        <div id="stats">
+            <img src="stats.png" style="width:20px; height:20px;">
+            <span id="resultado"></span>|<a href="#" id="borrar" @click="borrarTarea()">❌Borrar tareas completadas</a>
+            <h4>Buscar por prioridad</h4>
+            <select id="prioridad" @change="buscarPrioridad()">
+                <option value="0">Todas</option>
+                <option value="1">Baja</option>
+                <option value="2">Media</option>
+                <option value="3">Alta</option>
+            </select>
+        </div>
+        <hr>
+        <div id="contenido"></div>
+        <p>Desarrollado por Pablo Lestau</p>
+        <p>Código disponible en <a id="github" href="https://github.com/plestau">Github</a></p>
+    </div>
+    <script src="todo.js"></script>
+</body>
+</html>
