@@ -7,21 +7,21 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/00fac58af6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Recoratorio Notas</title>
+    <title>ToDo List con Vue</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
     <main id="app">
         <header>
-            <h1>Proyecto Vue - Álvaro García Campos</h1>
+            <h1>Proyecto Vue/JQuery</h1>
             <input type="text" id="notaInput" placeholder="¿Qué quieres recordar?" v-model="newNotaInputText" @keyup.enter="nuevaNota">
             <input type="text" id="searchNota" placeholder="🔍︎ Buscar..." v-model="searchNotaInputText" @keyup="searchNota">
             <p>Filtrar por priorodidad:
                 <select name="" id="filterByPriority" v-model="priorityFilter" @change="searchNota()">
-                    <option value="">-------</option>
-                    <option value="low">Low</option>
+                    <option value="">Seleccione una:</option>
+                    <option value="low">Baja</option>
                     <option value="normal">Normal</option>
-                    <option value="high">High</option>
+                    <option value="high">Alta</option>
                 </select>
             </p>
         </header>
