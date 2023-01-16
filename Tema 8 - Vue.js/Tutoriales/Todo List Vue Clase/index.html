@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/00fac58af6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Recoratorio Notas</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <main id="app">
+        <header>
+            <h1>Proyecto Vue - Álvaro García Campos</h1>
+            <input type="text" id="notaInput" placeholder="¿Qué quieres recordar?" v-model="newNotaInputText" @keyup.enter="nuevaNota">
+            <input type="text" id="searchNota" placeholder="🔍︎ Buscar..." v-model="searchNotaInputText" @keyup="searchNota">
+            <p>Filtrar por priorodidad:
+                <select name="" id="filterByPriority" v-model="priorityFilter" @change="searchNota()">
+                    <option value="">-------</option>
+                    <option value="low">Low</option>
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                </select>
+            </p>
+        </header>
+        <div id="container">
+            <p id="tareasPen">{{notasPendientes}} pendientes de un total de {{totalNotas}} <i class="fa-solid fa-chart-column"></i> <span id="pendientes"></span> | <span id="deleteAll" @click="deleteCompletedNotas()"><i class="fa-solid fa-x"></i> Borrar tareas completadas</span></p>
+            <div class="singleNota" v-for="nota in searchNota()">
+                <!-- COMPROBAR NOTA COMPLETADA -->
+                <div class='nota--text'>
+                    <i :class='[{fa_circle : !nota.completed, fa_check_circle : nota.completed}, "fa_regular"]' @click="completarNota(nota)"></i>
+                    <h2 :class="{checked : nota.completed}">{{ nota.nombre }}</h2>
+                    <i class='fa-solid fa-square-minus' @click="deleteNota(nota)"></i>
+                </div>
+
+                <div class='nota--data'>
+                    <p>Prioridad</p>
+                    <button id='low' :class="{not_marked : nota.prioridad != 'low', marked : nota.prioridad == 'low'}" @click="setPriority(nota, 'low')"><i class='fa-solid fa-arrow-down'></i>Low</button>
+                    <button id='normal' :class="{not_marked : nota.prioridad != 'normal', marked : nota.prioridad == 'normal'}" @click="setPriority(nota, 'normal')">Normal</button>
+                    <button id='high' :class="{not_marked : nota.prioridad != 'high', marked : nota.prioridad == 'high'}" @click="setPriority(nota, 'high')"><i class='fa-solid fa-arrow-up'></i>High</button>
+                    <i class='fa-regular fa-clock'></i>
+                    <p>Añadido hace {{ calculateDate(nota) }} minutos.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Desarrollado por Pablo Lestau</p>
+        <p>Código disponible en <a href="www.github.com/plestau" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>.</p>
+    </footer>
+    
+    <script src="index.js"></script>
+</body>
+</html>
